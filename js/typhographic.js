@@ -1,64 +1,75 @@
-function rand(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-function getRandomLetter() {
- var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
- return alphabet[rand(0,alphabet.length - 1)]
-}
-function getRandomWord(word) {
-  var text = word.innerHTML
-  
-  var finalWord = ''
-  for(var i=0;i<text.length;i++) {
-    finalWord += text[i] == ' ' ? ' ' : getRandomLetter()
-  }
- 
-  return finalWord
-}
+var typed = new Typed(".typing", {
+  strings: ["", "Ethical Hacker", "Cloud Security Expert"],
+  typeSpeed: 100,
+  BackSpeed: 60,
+  loop: true,
+});
 
-var word = document.querySelector('p')
-var interv = 'undefined'
-var canChange = false
-var globalCount = 0
-var count = 0
-var INITIAL_WORD = word.innerHTML;
-var isGoing = false
+// Aside
+const nav = document.querySelector(".nav"),
+  navList = nav.querySelectorAll("li"),
+  totalNavList = navList.length,
+  allSection = document.querySelectorAll(".section"),
+  totalSection = allSection.length;
 
-function init() {
- if(isGoing) return;
- 
- isGoing = true
- var randomWord = getRandomWord(word)
- word.innerHTML = randomWord
-
- interv = setInterval(function() {
-  var finalWord = ''
-  for(var x=0;x<INITIAL_WORD.length;x++) {
-   if(x <= count && canChange) {
-    finalWord += INITIAL_WORD[x]
-   } else {
-    finalWord += getRandomLetter()
-   }
+for (let i = 0; i < totalNavList; i++) {
+  const a = navList[i].querySelector("a");
+  a.addEventListener("click", function () {
+    for (let k = 0; k < totalSection; k++) {
+      allSection[k].classList.remove("back-section");
+    }
+    //Loop for removing active class
+    for (let j = 0; j < totalNavList; j++) {
+      if (navList[j].querySelector("a").classList.contains("active")) {
+        allSection[j].classList.add("back-section");
+      }
+      navList[j].querySelector("a").classList.remove("active");
+    }
+    //Adding active class
+    this.classList.add("active");
+    showSection(this); //Function call
+    //Nav click event - Hiding the nav menu
+    if (window.innerWidth < 1200) {
+      asideSectionTogglerBtn();
+    }
+  });
+}
+function showSection(element) {
+  //Loop for removing active class
+  for (let k = 0; k < totalSection; k++) {
+    allSection[k].classList.remove("active");
   }
-  word.innerHTML = finalWord
-  if(canChange) {
-    count++
-  }
-  if(globalCount >= 20) {
-   canChange = true
-  }
-  if(count>=INITIAL_WORD.length) {
-   clearInterval(interv)
-   count = 0
-   canChange = false
-   globalCount = 0
-   isGoing = false
-  }
-  globalCount++
- },50)
- 
+  const target = element.getAttribute("href").split("#")[1];
+  document.querySelector("#" + target).classList.add("active");
 }
 
+//For Hire me section
+document.querySelector(".hire-me").addEventListener("click", function () {
+  showSection(this);
+  updateNav(this);
+});
 
+function updateNav(element) {
+  for (let i = 0; i < totalNavList; i++) {
+    navList[i].querySelector("a").classList.remove("active");
+    const target = element.getAttribute("href").split("#")[1];
+    if (
+      target ===
+      navList[i].querySelector("a").getAttribute("href").split("#")[1]
+    ) {
+      navList[i].querySelector("a").classList.add("active");
+    }
+  }
+}
 
-word.addEventListener('mouseenter', init)
+//For Nav Toggler Button
+const navTogglerBtn = document.querySelector(".nav-toggler"),
+  aside = document.querySelector(".aside");
+navTogglerBtn.addEventListener("click", () => {
+  asideSectionTogglerBtn();
+});
+
+function asideSectionTogglerBtn() {
+  aside.classList.toggle("open");
+  navTogglerBtn.classList.toggle("open");
+}
