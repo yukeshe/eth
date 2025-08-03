@@ -1,7 +1,7 @@
 var typed = new Typed(".typing", {
-  strings: ["", "Ethical Hacker", "Cloud Security Expert"],
+  strings: ["CyberSecurity Enthusiast", "Ethical Hacker", "Programmer","Network Engineer","Red Teamer","Web Developer"],
   typeSpeed: 100,
-  BackSpeed: 60,
+  BackSpeed: 50,
   loop: true,
 });
 
