@@ -98,6 +98,10 @@ ul {
   padding-left: 15px;
   padding-right: 15px;
 }
+.padd-30 {
+  padding-left: 30px;
+  padding-right: 30px;
+}
 
 .container {
   max-width: 1100px;
@@ -346,10 +350,10 @@ h3.hello {
 }
 
 h3.hello span {
-  font-family: "Clicker Script", cursive;
+  font-family: "Roboto";
   font-size: 30px;
   font-weight: 700;
-  color: var(--skin-color);
+  color: greenyellow;
 }
 
 h3.my-profession {
@@ -724,6 +728,13 @@ h3.my-profession {
   text-transform: capitalize;
   color: var(--text-black-900);
 }
+.education .container .timeline .timeline-titleh3 {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  color: white;
+}
 
 .education .container .timeline .timeline-text {
   line-height: 25px;
@@ -733,6 +744,165 @@ h3.my-profession {
 }
 
 /* Education End */
+
+
+/* Experience Start */
+.experience .container {
+  padding-bottom: 40px;
+}
+
+.experience .experience-item {
+  flex: 0 0 33.33%;
+  max-width: 33.33%;
+  margin-bottom: 30px;
+}
+
+.experience .experience-item .experience-item-inner {
+  background-color: var(--bg-black-100);
+  border: 1px solid var(--bg-black-50);
+  border-radius: 10px;
+  padding: 30px 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.experience .experience-item .experience-item-inner:hover {
+  box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+}
+
+.experience .experience-item .experience-item-inner .icon {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.experience .experience-item .experience-item-inner .icon .fa {
+  font-size: 40px;
+  line-height: 60px;
+  color: var(--skin-color);
+}
+
+.experience .experience-item .experience-item-inner:hover .icon {
+  background: var(--skin-color);
+}
+
+.experience .experience-item .experience-item-inner:hover .icon .fa {
+  font-size: 25px;
+  color: white;
+}
+
+.experience .experience-item .experience-item-inner h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: var(--text-black-900);
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.experience .experience-item .experience-item-inner p {
+  font-size: 16px;
+  color: var(--text-black-700);
+  line-height: 25px;
+}
+
+.experience .container .experience,
+.experience .container .education {
+  flex: 0 0 50%;
+  max-width: 50%;
+  margin-top: 30px;
+}
+
+.experience .container h3.title {
+  font-size: 24px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: var(--text-black-900);
+}
+
+.experience .container .timeline-box {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.experience .container .timeline {
+  background: rgba(0, 0, 0, 0.795);
+  padding: 30px 15px;
+  border: 1px solid var(--bg-black-50);
+  border-radius: 10px;
+  width: 100%;
+  position: relative;
+}
+
+.experience .container .timeline .timeline-item {
+  position: relative;
+  padding-left: 37px;
+  padding-bottom: 50px;
+}
+
+.experience .container .timeline .timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.experience .container .timeline .timeline-item::before {
+  content: "";
+  width: 1px;
+  position: absolute;
+  height: 100%;
+  left: 7px;
+  top: 0;
+  background-color: var(--skin-color);
+}
+
+.experience .container .timeline .circle-dot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: var(--skin-color);
+}
+
+.experience .container .timeline .timeline-date {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  color: var(--text-black-700);
+}
+
+.experience .container .timeline .timeline-date fa {
+  margin-right: 5px;
+}
+
+.experience .container .timeline .timeline-title {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  color: var(--text-black-900);
+}
+.experience .container .timeline .timeline-titleh3 {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  color: white;
+}
+
+.experience .container .timeline .timeline-text {
+  line-height: 25px;
+  font-size: 16px;
+  text-align: justify;
+  color: var(--text-black-700);
+}
+
+/* Experience End */
+
+
 
 /* Contact Start */
 .contact-title {
