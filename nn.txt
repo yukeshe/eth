@@ -1,0 +1,17 @@
+# Create main OUs
+New-ADOrganizationalUnit -Name "LAB-Users" -Path "DC=lab,DC=local"
+New-ADOrganizationalUnit -Name "LAB-Computers" -Path "DC=lab,DC=local"
+New-ADOrganizationalUnit -Name "LAB-Groups" -Path "DC=lab,DC=local"
+New-ADOrganizationalUnit -Name "LAB-Servers" -Path "DC=lab,DC=local"
+
+# Create sub-OUs for Users
+New-ADOrganizationalUnit -Name "IT-Staff" -Path "OU=LAB-Users,DC=lab,DC=local"
+New-ADOrganizationalUnit -Name "Finance" -Path "OU=LAB-Users,DC=lab,DC=local"
+New-ADOrganizationalUnit -Name "HR" -Path "OU=LAB-Users,DC=lab,DC=local"
+New-ADOrganizationalUnit -Name "Sales" -Path "OU=LAB-Users,DC=lab,DC=local"
+New-ADOrganizationalUnit -Name "Service-Accounts" -Path "OU=LAB-Users,DC=lab,DC=local"
+
+# Create sub-OUs for Computers
+New-ADOrganizationalUnit -Name "Workstations" -Path "OU=LAB-Computers,DC=lab,DC=local"
+New-ADOrganizationalUnit -Name "Laptops" -Path "OU=LAB-Computers,DC=lab,DC=local"
+New-ADOrganizationalUnit -Name "Servers" -Path "OU=LAB-Computers,DC=lab,DC=local"
